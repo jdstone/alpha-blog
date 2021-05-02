@@ -12,7 +12,7 @@
   <tbody>
     <% @articles.each do |article| %>
     <tr>
-      <td><%= article.title %></td>
+      <td><%= link_to article.title, article_path(article) %></td>
       <td><%= article.description %></td>
       <td><%= link_to 'Delete', article_path(article), method: :delete %></td>
     </tr>
