@@ -1,6 +1,7 @@
+<p><%= link_to 'About', about_path %></p>
 <h1>Articles listing page</h1>
 
-<h2><%= link_to 'Create a new article', new_article_path(@article) %></h2>
+<h3><%= link_to 'Create a new article', new_article_path(@article) %></h3>
 
 <table>
   <thead>
@@ -16,7 +17,10 @@
     <tr>
       <td><%= link_to article.title, article_path(article) %></td>
       <td><%= article.description %></td>
-      <td><%= link_to 'Edit', edit_article_path(article) %> | <%= link_to 'Delete', article_path(article), method: :delete %></td>
+      <td>
+        <%= link_to 'Edit', edit_article_path(article) %> | 
+        <%= link_to 'Delete', article_path(article), method: :delete, data: { confirm: "Are you sure?" } %>
+      </td>
     </tr>
     <% end %>
   </tbody>
