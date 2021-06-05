@@ -24,6 +24,24 @@
           </div>
         </div>
 
+        <!-- <% unless @user.new_record? %>
+        <div class="input-group row mb-3">
+          <%= f.label :password, 'Current password', class: "col-2 col-form-label text-light" %>
+          <div class="col-10">
+            <%= f.password_field :password, class: "form-control shadow rounded", placeholder: "Type your current password" %>
+          </div>
+        </div>
+        <% end %> -->
+
+        <!-- <% unless @user.new_record? %>
+        <div class="input-group row mb-3">
+          <%= f.label :password, 'New password', class: "col-2 col-form-label text-light" %>
+          <div class="col-10">
+            <%= f.password_field :password, class: "form-control shadow rounded", placeholder: "Type your new password" %>
+          </div>
+        </div>
+        <% end %> -->
+
         <div class="input-group row mb-3">
           <%= f.label :password, class: "col-2 col-form-label text-light" %>
           <div class="col-10">
@@ -39,7 +57,7 @@
         </div>
 
         <div class="input-group justify-content-center mb-3">
-          <%= f.submit 'Sign up', class: "btn btn-outline-light btn-lg" %>
+          <%= f.submit(@user.new_record? ? 'Sign up' : 'Update account', class: "btn btn-outline-light btn-lg") %>
         </div>
       <% end %>
     </div>
