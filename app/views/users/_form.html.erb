@@ -24,33 +24,35 @@
           </div>
         </div>
 
-        <!-- <% unless @user.new_record? %>
+        <% unless @user.new_record? %>
         <div class="input-group row mb-3">
-          <%= f.label :password, 'Current password', class: "col-2 col-form-label text-light" %>
+          <%= f.label :current_password, 'Current password', class: "col-2 col-form-label text-light" %>
           <div class="col-10">
-            <%= f.password_field :password, class: "form-control shadow rounded", placeholder: "Type your current password" %>
+            <%= f.password_field :current_password, class: "form-control shadow rounded", placeholder: "Type your current password" %>
           </div>
         </div>
-        <% end %> -->
+        <% end %>
 
-        <!-- <% unless @user.new_record? %>
+        <% unless @user.new_record? %>
         <div class="input-group row mb-3">
-          <%= f.label :password, 'New password', class: "col-2 col-form-label text-light" %>
+          <%= f.label :new_password, 'New password', class: "col-2 col-form-label text-light" %>
           <div class="col-10">
-            <%= f.password_field :password, class: "form-control shadow rounded", placeholder: "Type your new password" %>
+            <%= f.password_field :new_password, class: "form-control shadow rounded", placeholder: "Type your new password" %>
           </div>
         </div>
-        <% end %> -->
+        <% end %>
 
+        <% if @user.new_record? %>
         <div class="input-group row mb-3">
           <%= f.label :password, class: "col-2 col-form-label text-light" %>
           <div class="col-10">
             <%= f.password_field :password, class: "form-control shadow rounded", placeholder: "Choose a password" %>
           </div>
         </div>
+        <% end %>
 
         <div class="input-group row mb-3">
-          <%= f.label :password_confirmation, 'Confirm Your Password', class: "col-2 col-form-label text-light" %>
+          <%= f.label :password_confirmation, 'Confirm your password', class: "col-2 col-form-label text-light" %>
           <div class="col-10">
             <%= f.password_field :password_confirmation, class: "form-control shadow rounded", placeholder: "Type your password again" %>
           </div>

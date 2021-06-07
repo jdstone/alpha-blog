@@ -18,6 +18,11 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    # if @user.update_attributes(user_params)
+    #   # Notify the user that his/her profile was updated
+    #   flash.now[:success] = "Your changes have been saved"
+    # end
+
     if @user.update(user_params)
       flash[:notice] = "Account successfully updated"
       redirect_to root_path
