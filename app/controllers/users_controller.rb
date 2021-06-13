@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     # end
 
     if @user.update(user_params)
-      flash[:notice] = "Account successfully updated"
+      flash[:notice] = "Account successfully updated."
       redirect_to @user
     else
       render 'edit'
