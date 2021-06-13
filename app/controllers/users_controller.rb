@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update]
+
   def show
-    @user = User.find(params[:id])
     @articles = @user.articles.paginate(page: params[:page], per_page: 5)
   end
 
@@ -13,11 +14,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
     # if @user.update_attributes(user_params)
     #   # Notify the user that his/her profile was updated
     #   flash.now[:success] = "Your changes have been saved"
@@ -34,6 +33,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      session[:user_id] = @user.id
       flash[:notice] = "Welcome #{@user.firstname}, thanks for signing up!"
       redirect_to root_path
     else
@@ -44,5 +44,9 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:firstname, :lastname, :email, :password, :password_confirmation)
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 end
