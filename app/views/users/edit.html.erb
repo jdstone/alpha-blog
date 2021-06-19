@@ -1,3 +1,5 @@
 <h1 class="text-center mt-4">Edit your account</h1>
 
 <%= render 'form' %>
+
+<h5 class="text-center mt-4"><%= link_to 'Delete my account', user_path(@user), class: "text-danger", method: :delete, data: { confirm: "Are you sure?" } %></h5>
