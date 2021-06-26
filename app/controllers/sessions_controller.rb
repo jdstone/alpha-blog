@@ -20,8 +20,4 @@ class SessionsController < ApplicationController
     flash[:notice] = "You have been successfully logged out."
     redirect_to root_path
   end
-
-  def logout
-    destroy
-  end
 end
