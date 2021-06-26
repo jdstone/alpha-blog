@@ -15,4 +15,10 @@ class ApplicationController < ActionController::Base
       redirect_to login_path
     end
   end
+
+  # def logout
+  #   session[:user_id] = nil
+  #   flash[:notice] = "You have been successfully logged out."
+  #   redirect_to root_path
+  # end
 end

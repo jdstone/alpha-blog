@@ -19,9 +19,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    # if @user.update_attributes(user_params)
-    #   # Notify the user that his/her profile was updated
-    #   flash.now[:success] = "Your changes have been saved"
+    # if @user.update(password_params)
+    #   # redirect_to '/logout', notice: 'Password Updated'
+    #   # redirect_to logout_path, notice: 'Password Updated'
+    #   flash[:info] = "Password updated."
+    #   logout
     # end
 
     if @user.update(user_params)
@@ -57,8 +59,14 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:firstname, :lastname, :email, :password, :password_confirmation)
+    # params.require(:user).permit(:firstname, :lastname, :email, :password, :password_confirmation)
+    params.require(:user).permit(:firstname, :lastname, :email, :current_password, :password, :password_confirmation)
+    # params.require(:user).permit(:firstname, :lastname, :email)
   end
+
+  # def password_params
+  #   params.require(:user).permit(:current_password, :password, :password_confirmation)
+  # end
 
   def set_user
     @user = User.find(params[:id])
