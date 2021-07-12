@@ -13,8 +13,27 @@
           <%= link_to 'Users', users_path, class: "nav-link" %>
         </li>
         <% if logged_in? %>
+          <% if current_user.admin? %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Categories
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><%= link_to 'View categories', categories_path, class: "dropdown-item" %></li>
+              <li><%= link_to 'Create a new category', new_category_path, class: "dropdown-item" %></li>
+            </ul>
+          </li>
+          <% else %>
+          <li class="nav-item">
+            <%= render 'layouts/categories_link' %>
+          </li>
+          <% end %>
         <li class="nav-item">
           <%= link_to 'Create a new article', new_article_path(@article), class: "nav-link" %>
+        </li>
+        <% else %>
+        <li class="nav-item">
+          <%= render 'layouts/categories_link' %>
         </li>
         <% end %>
       </ul>
