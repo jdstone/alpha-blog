@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:destroy, :edit, :show, :update]
   before_action :require_user, only: [:edit, :update]
-  before_action :require_same_user, only: [:edit, :update, :destroy]
+  before_action :require_same_user, only: [:destroy, :edit, :update]
 
   def create
     @user = User.new(user_params)
@@ -58,6 +58,7 @@ class UsersController < ApplicationController
   end
 
   private
+
   # def password_params
   #   params.require(:user).permit(:current_password, :password, :password_confirmation)
   # end
