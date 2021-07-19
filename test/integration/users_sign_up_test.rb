@@ -1,10 +1,6 @@
 require "test_helper"
 
 class UsersSignUpTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
-
   test "get signup form and create user" do
     get "/signup"
     assert_response :success
